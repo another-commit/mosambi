@@ -1,0 +1,44 @@
+{
+    "name": "mosambi",
+    "manifest_version": 3,
+    "version": "1.0",
+    "description": "a word mosambi.",
+    "permissions": [
+        "tabs",
+        "cookies",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://*.alfapte.com/*"
+    ],
+    "icons": {
+        "64": "icons/mosambi.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.expertprep.portal.alfapte.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "XMLHttpRequest.js"
+            ],
+            "matches": [
+                "https://*.expertprep.portal.alfapte.com/*"
+            ]
+        }
+    ]
+}
